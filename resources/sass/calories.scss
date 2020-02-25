@@ -1,0 +1,74 @@
+
+$min-width: 90px;
+$max-width-input: 30%;
+$max-width-label: 5%;
+
+@mixin min-max-width($min, $max) {
+    min-width: $min;
+    width: $max;
+}
+
+.widht-input{
+    min-width: $min-width;
+    width: $max-width-input;
+}
+
+.widht-label{
+    min-width: $min-width;
+    width: $max-width-label;
+}
+
+.main{
+    display:grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 10% 80% 10%;
+}
+
+.card-body{
+
+    border:1px #ccc solid;
+    grid-row: 2/3;
+    grid-column: 2/3;
+
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+
+.input-container{
+    padding: 10px;
+
+    // child styles
+    grid-column: 1/2;
+
+
+    // container styles
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+label{
+    @extend .widht-label;
+}
+
+.level-input{
+    @extend .widht-input;
+    margin: 0 5px 0 0;
+}
+
+.time{
+    @include min-max-width(70px, 5%);
+}
+
+#Result{
+    @extend .widht-input;
+}
+
+#button-calculate{
+    @extend .widht-label;
+}
+
+.output-container{
+    @extend .input-container;
+}
